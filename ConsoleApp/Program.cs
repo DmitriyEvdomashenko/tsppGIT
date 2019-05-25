@@ -18,7 +18,7 @@ namespace ConsoleApp
             while (true)
             {
                 Console.WriteLine("_________________________");
-                Console.WriteLine("Выберите роль: ");
+                Console.WriteLine("Выберите: ");
                 Console.WriteLine("1 - Работник");
                 Console.WriteLine("2 - Клиент");
                 Console.WriteLine("0 - Выход из программы");
@@ -28,8 +28,7 @@ namespace ConsoleApp
                 {
                     case '1':
                         {
-                            //Console.ReadKey();
-                            //Console.Clear();
+                            Console.Clear();
                             Console.WriteLine("Выберите функцию для работника: ");
                             Console.WriteLine("1 - Просмотреть каталог");
                             Console.WriteLine("2 - Отсортировать каталог");
@@ -51,13 +50,12 @@ namespace ConsoleApp
                         break;
                     case '2':
                         {
-                            //Console.ReadKey();
-                            //Console.Clear();
+                            Console.Clear();
                             Console.WriteLine("Выберите функцию для клиента:");
                             Console.WriteLine("1 - Просмотреть каталог библиотеки");
                             Console.WriteLine("2 - Просмотреть список взятых книг");
                             Console.WriteLine("3 - Взять книгу");
-                            Console.WriteLine("4 - Возвратить книгу");
+                            Console.WriteLine("4 - Вернуть книгу");
                             Console.WriteLine("0 - Выйти в главное меню");
                             chooseKey2 = Convert.ToChar(Console.ReadLine());
                             switch (chooseKey2)
@@ -66,11 +64,18 @@ namespace ConsoleApp
                                 case '2': customer._books.ShowListBook(); break;
                                 case '3': customer.TakeBook(ref _bookObj, ref worker, ref _issueList); break;
                                 case '4': customer.ReturnBook(ref worker, ref _bookObj); break;
-                                case '0': break;
+                                case '0': {
+                                        Console.Clear();
+                                        break;
+                                          }
                             }
                         }
                         break;
-                    case '0': return;
+                    case '0':
+                        {
+                            Console.Clear();
+                            return;
+                        }
                 }
             }
         }

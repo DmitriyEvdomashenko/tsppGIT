@@ -1,11 +1,10 @@
 ﻿using System;
-
 namespace Library
 {
     public class Worker
     {
         public BookCatalog _books = new BookCatalog();
-        public string name { get { string _name = "Работник Работникович"; return _name; } set { } }
+        public string name { get { string _name = "Работник_1"; return _name; } set { } }
         public int ViewCatalog(ref BookCatalog _books) { _books.ShowListBook(); return 0; }
         public int WriteOffBook(ref Book _book)
         {

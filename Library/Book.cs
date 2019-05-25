@@ -7,7 +7,7 @@ namespace Library
     public class Book
     {
         [Required]
-        [Range(1800, 2019)]
+        [Range(1700, 2019)]
         public int year { get; set; }
         [Required]
         [StringLength(20, MinimumLength = 3)]
@@ -25,7 +25,6 @@ namespace Library
             var context = new ValidationContext(this);
             while (true)
             {
-                Console.WriteLine("Производится ввод данных книги...");
                 Console.Write("Введите название книги: "); title = Console.ReadLine();
                 Console.Write("Введите имя автора: "); nameAuthor = Console.ReadLine();
                 Console.Write("Введите год издания книги: "); year = Convert.ToInt16(Console.ReadLine());
@@ -41,16 +40,18 @@ namespace Library
                 else break;
             }
             Console.WriteLine("Нажмите на любую клавишу...");
+            Console.Clear();
             return 0;
         }
         public void ShowInfBook(bool table = true)
         {
             if (table == true)
             {
-                Console.WriteLine("__________________________________________________");
+                Console.WriteLine("________________________________________________");
                 Console.WriteLine("|Название  | Имя автора  |  Год  |  Состоние   |");
+                Console.WriteLine("________________________________________________");
             }
-            Console.WriteLine($"|  {title}   |{nameAuthor}       |{year}   |{state}|");
+            Console.WriteLine($"| {title}   |{nameAuthor}       |{year}   |{state}    |");
             return;
         }
     }

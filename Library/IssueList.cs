@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Library
 {
@@ -11,13 +8,23 @@ namespace Library
         public List<Issue> stat = new List<Issue>();
         public void ShowList()
         {
+            if (stat.Count == 0)
+            {
+                Console.WriteLine("Выдач нету, нажмите, чтобы продолжить...");
+                Console.ReadKey();
+                Console.Clear();
+                return;
+            }
             for (int i = 0; i < stat.Count; i++)
             {
-                Console.WriteLine("_________________________________________________________");
-                Console.WriteLine("+      Работник        |     Клиент/Номер     |        Дата          |       Книга        +");
-                Console.WriteLine($"+{stat[i].ObjWorker.name}  {stat[i].objCustomer.name},{stat[i].objCustomer.num}   {stat[i].date}{stat[i].objBook.title}+");
+                Console.WriteLine("_______________________________________________________________________________");
+                Console.WriteLine("|      Работник      |      Клиент      |        Дата          |    Книга     |");
+                Console.WriteLine($"|    {stat[i].ObjWorker.name}      | {stat[i].objCustomer.name}         | {stat[i].date}    |  {stat[i].objBook.title}|");
             }
-            Console.WriteLine("_________________________________________________________");
+            Console.WriteLine("________________________________________________________________________________");
+            Console.WriteLine("Для продолжения нажмите любую клавишу...");
+            Console.ReadKey();
+            Console.Clear();
             return;
         }
         public int ChangeListIssue() { return 0; }

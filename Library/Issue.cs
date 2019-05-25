@@ -10,11 +10,11 @@ namespace Library
         public Worker ObjWorker = new Worker();
         public Issue(string _nameAu, string _cust, int _numCust, DateTime dat, string workName)
         {
-            this.objBook.nameAuthor = _nameAu;
-            this.objCustomer.name = _cust;
-            this.objCustomer.num = _numCust;
-            this.date = dat;
-            this.ObjWorker.name = workName;
+            objBook.nameAuthor = _nameAu;
+            objCustomer.name = _cust;
+            objCustomer.num = _numCust;
+            date = dat;
+            ObjWorker.name = workName;
         }
         ~Issue() { }
     }
