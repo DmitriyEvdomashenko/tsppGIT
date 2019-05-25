@@ -4,6 +4,7 @@ namespace Library
 
     public class Customer
     {
+        public static string title2;
         public int num { get; set; }
         public BookCatalog _books = new BookCatalog();
         public string name;
@@ -14,6 +15,13 @@ namespace Library
         }
         public int TakeBook(ref BookCatalog _books, ref Worker _worker, ref IssueList _issueList)
         {
+            if (_books.book.Count == 0)
+            {
+                Console.WriteLine("Каталог пуст!");
+                Console.ReadKey();
+                Console.Clear();
+                return 0;
+            }
             Book newBook = new Book();
             Console.WriteLine("Введите пожалуйста информацию о книге: ");
             newBook.SetInfBook();
@@ -30,14 +38,28 @@ namespace Library
         }
         public int ReturnBook(ref Worker _worker, ref BookCatalog _bc)
         {
+            if (_books.book.Count == 0)
+            {
+                Console.WriteLine("Каталог пуст!");
+                Console.ReadKey();
+                Console.Clear();
+                return 0;
+            }
             Console.WriteLine("Введите название книги которую хотите вернуть:");
-            string title = Console.ReadLine();
+            title2 = Console.ReadLine();
             for (int i = 0; i < _books.book.Count; i++)
             {
-                if (string.Compare(title, _books.book[i].title) == 0)
+                if (string.Compare(title2, _books.book[i].title) == 0)
                 {
                     _books.book.Remove(_books.book[i]);
                     _worker.RetBook(ref _bc);
+                }
+                else
+                {
+                    Console.WriteLine("Книга не найдена, нажмите любую клавишу...");
+                    Console.ReadKey();
+                    Console.Clear();
+                    return 0;
                 }
             }
             Console.WriteLine("Книга успешно возвращена, нажмите любую клавишу...");

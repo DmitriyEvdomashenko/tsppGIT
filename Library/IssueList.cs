@@ -15,11 +15,11 @@ namespace Library
                 Console.Clear();
                 return;
             }
+            Console.WriteLine("_______________________________________________________________________________");
+            Console.WriteLine("|      Работник      |      Клиент      |        Дата          |    Книга     |");
             for (int i = 0; i < stat.Count; i++)
-            {
-                Console.WriteLine("_______________________________________________________________________________");
-                Console.WriteLine("|      Работник      |      Клиент      |        Дата          |    Книга     |");
-                Console.WriteLine($"|    {stat[i].ObjWorker.name}      | {stat[i].objCustomer.name}         | {stat[i].date}    |  {stat[i].objBook.title}|");
+            { 
+                Console.WriteLine($"|    {stat[i].ObjWorker.name}      | {stat[i].objCustomer.name}       | {stat[i].date}    |  {stat[i].objBook.nameAuthor}|");
             }
             Console.WriteLine("________________________________________________________________________________");
             Console.WriteLine("Для продолжения нажмите любую клавишу...");

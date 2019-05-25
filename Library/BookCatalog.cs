@@ -26,13 +26,14 @@ namespace Library
             //book.Sort();book.BinarySearch(itemSearch);
             return 0;
         }
-        public int Sort()
+        /*public int Sort()
         {   book.Sort();
             Console.WriteLine("Список отсортирован");
             Console.ReadKey();
             Console.Clear();
             return 0;
         }
+        */
         public int AddBook()
         {
             Book itemAdd = new Book();

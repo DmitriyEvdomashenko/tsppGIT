@@ -21,8 +21,7 @@ namespace Library
         public void ChangeNameWorker() => name = Console.ReadLine();
         public void RetBook(ref BookCatalog _bc)
         {
-            Console.WriteLine("Введите название книги которую хотите вернуть");
-            string title = Console.ReadLine();
+            string title = Customer.title2;
             int i = 0;
             for (i = 0; i < _bc.book.Count; i++)
             {

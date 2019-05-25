@@ -17,7 +17,6 @@ namespace ConsoleApp
             Worker worker = new Worker();
             while (true)
             {
-                Console.WriteLine("_________________________");
                 Console.WriteLine("Выберите: ");
                 Console.WriteLine("1 - Работник");
                 Console.WriteLine("2 - Клиент");
@@ -31,17 +30,15 @@ namespace ConsoleApp
                             Console.Clear();
                             Console.WriteLine("Выберите функцию для работника: ");
                             Console.WriteLine("1 - Просмотреть каталог");
-                            Console.WriteLine("2 - Отсортировать каталог");
-                            Console.WriteLine("3 - Добавить в каталог книгу");
-                            Console.WriteLine("4 - Посмотреть список выдач");
+                            Console.WriteLine("2 - Добавить в каталог книгу");
+                            Console.WriteLine("3 - Посмотреть список выдач");
                             Console.WriteLine("0 - Выйти в главное меню");
                             chooseKey1 = Convert.ToChar(Console.ReadLine());
                             switch (chooseKey1)
                             {
                                 case '1': worker.ViewCatalog(ref _bookObj); break;
-                                case '2': worker._books.Sort(); break;
-                                case '3': _bookObj.AddBook(); break;
-                                case '4': _issueList.ShowList(); break;
+                                case '2': _bookObj.AddBook(); break;
+                                case '3': _issueList.ShowList(); break;
                                 case '0':
                                     Console.Clear();
                                     break;
