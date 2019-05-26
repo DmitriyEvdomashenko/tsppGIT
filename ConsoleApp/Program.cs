@@ -8,9 +8,7 @@ namespace ConsoleApp
         public int total = 0;
         static void Main(string[] args)
         {
-            char chooseKey;
-            char chooseKey1;
-            char chooseKey2 = '1';
+            string input = null;
             BookCatalog _bookObj = new BookCatalog();
             IssueList _issueList = new IssueList();
             Customer customer = new Customer();
@@ -22,7 +20,8 @@ namespace ConsoleApp
                 Console.WriteLine("2 - Клиент");
                 Console.WriteLine("0 - Выход из программы");
                 Console.WriteLine("_________________________");
-                chooseKey = Convert.ToChar(Console.ReadLine());
+                var chooseKey = ((input = Console.ReadLine()) != null && input.Length > 0) ? input[0] : ' ';
+
                 switch (chooseKey)
                 {
                     case '1':
@@ -33,13 +32,18 @@ namespace ConsoleApp
                             Console.WriteLine("2 - Добавить в каталог книгу");
                             Console.WriteLine("3 - Посмотреть список выдач");
                             Console.WriteLine("0 - Выйти в главное меню");
-                            chooseKey1 = Convert.ToChar(Console.ReadLine());
+                            var chooseKey1 = ((input = Console.ReadLine()) != null && input.Length > 0) ? input[0] : ' ';
                             switch (chooseKey1)
                             {
                                 case '1': worker.ViewCatalog(ref _bookObj); break;
                                 case '2': _bookObj.AddBook(); break;
                                 case '3': _issueList.ShowList(); break;
                                 case '0':
+                                    Console.Clear();
+                                    break;
+                                default:
+                                    Console.WriteLine("Не корректный ввод, повторите снова...");
+                                    Console.ReadKey();
                                     Console.Clear();
                                     break;
                             }
@@ -54,7 +58,7 @@ namespace ConsoleApp
                             Console.WriteLine("3 - Взять книгу");
                             Console.WriteLine("4 - Вернуть книгу");
                             Console.WriteLine("0 - Выйти в главное меню");
-                            chooseKey2 = Convert.ToChar(Console.ReadLine());
+                            var chooseKey2 = ((input = Console.ReadLine()) != null && input.Length > 0) ? input[0] : ' ';
                             switch (chooseKey2)
                             {
                                 case '1': customer.ViewCatalog(ref _bookObj); break;
@@ -65,6 +69,11 @@ namespace ConsoleApp
                                         Console.Clear();
                                         break;
                                           }
+                                default:
+                                    Console.WriteLine("Не корректный ввод, повторите снова...");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                    break;
                             }
                         }
                         break;
@@ -73,6 +82,10 @@ namespace ConsoleApp
                             Console.Clear();
                             return;
                         }
+                    default: Console.WriteLine("Не корректный ввод, повторите снова...");
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
                 }
             }
         }

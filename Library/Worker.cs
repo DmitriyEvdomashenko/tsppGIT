@@ -30,6 +30,5 @@ namespace Library
             //_book.state = "Свободная";
             return;
         }
-        //public void ShowInfWorker() { return ; }
     }
 }
